@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "3BX5WAhO10aE3aN65GpvjKKtXncHY7/IbAuitFloIXw=",
+  "Source": "insightflow-workspace-service",
+  "BasePath": "_content/insightflow-workspace-service",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

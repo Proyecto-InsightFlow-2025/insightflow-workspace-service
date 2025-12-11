@@ -1,0 +1,5 @@
+services:
+  api:
+    image: "eltosergi/insightflow-workspace-service"
+    ports:
+      - "3000:8080"

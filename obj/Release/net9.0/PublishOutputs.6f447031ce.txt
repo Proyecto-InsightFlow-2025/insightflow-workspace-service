@@ -1,0 +1,7 @@
+C:\Users\Serpa\Desktop\insightflow-workspace-service\bin\Release\net9.0\publish\insightflow-workspace-service.exe
+C:\Users\Serpa\Desktop\insightflow-workspace-service\bin\Release\net9.0\publish\appsettings.Development.json
+C:\Users\Serpa\Desktop\insightflow-workspace-service\bin\Release\net9.0\publish\appsettings.json
+C:\Users\Serpa\Desktop\insightflow-workspace-service\bin\Release\net9.0\publish\insightflow-workspace-service.dll
+C:\Users\Serpa\Desktop\insightflow-workspace-service\bin\Release\net9.0\publish\insightflow-workspace-service.deps.json
+C:\Users\Serpa\Desktop\insightflow-workspace-service\bin\Release\net9.0\publish\insightflow-workspace-service.runtimeconfig.json
+C:\Users\Serpa\Desktop\insightflow-workspace-service\bin\Release\net9.0\publish\insightflow-workspace-service.pdb
