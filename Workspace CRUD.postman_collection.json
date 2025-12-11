@@ -1,0 +1,136 @@
+{
+	"info": {
+		"_postman_id": "9ef56437-f37e-4d7a-b18d-9235ae02de09",
+		"name": "Workspace CRUD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38011692",
+		"_collection_link": "https://www.postman.com/sdfsd7-7952/workspace/taller-idwm/collection/38011692-9ef56437-f37e-4d7a-b18d-9235ae02de09?action=share&source=collection_link&creator=38011692"
+	},
+	"item": [
+		{
+			"name": "Local",
+			"item": [
+				{
+					"name": "Crear workspace",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Name\": \"Ucn zzzzz\",\r\n    \"Description\": \"quiero tertminar el semestre HDP\",\r\n    \"ThematicArea\": \"no se xddddd\",\r\n    \"IconURL\": \"no tengo\",\r\n    \"OwnerId\": \"332ef10d-a097-4abb-adb3-c813e1ac211c\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5067/Workspaces",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5067",
+							"path": [
+								"Workspaces"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Todos los workspace",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5067/Workspaces",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5067",
+							"path": [
+								"Workspaces"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener por id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5067/Workspaces/2fe39fcf-0cd7-49e0-b169-031312901d79",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5067",
+							"path": [
+								"Workspaces",
+								"2fe39fcf-0cd7-49e0-b169-031312901d79"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Espacio de trabajo",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"zzzzzz quiero dormir\",\r\n    \"description\":\"\",\r\n    \"thematicArea\": \"quemar el UCN\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5067/Workspaces/2fe39fcf-0cd7-49e0-b169-031312901d79",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5067",
+							"path": [
+								"Workspaces",
+								"2fe39fcf-0cd7-49e0-b169-031312901d79"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar un workspace",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5067/Workspaces/2fe39fcf-0cd7-49e0-b169-031312901d79",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5067",
+							"path": [
+								"Workspaces",
+								"2fe39fcf-0cd7-49e0-b169-031312901d79"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Render",
+			"item": []
+		}
+	]
+}
