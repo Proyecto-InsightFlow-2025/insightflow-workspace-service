@@ -10,7 +10,7 @@ namespace insightflow_workspace_service.src.DTOs
         public  string Name { get; set; } = "";
         public  string Description { get; set; } = "";
         public  string ThematicArea { get; set; } = "";
-        public  string IconURL { get; set; } = "";
+        public  IFormFile IconURL { get; set; } = null!;
 
     }
 }

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("insightflow-workspace-service")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e7d899274cbe66d7f3c6ab19cf797ddb02d9c6dd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6910850e01275f4b277335048181bd8b794608d6")]
 [assembly: System.Reflection.AssemblyProductAttribute("insightflow-workspace-service")]
 [assembly: System.Reflection.AssemblyTitleAttribute("insightflow-workspace-service")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

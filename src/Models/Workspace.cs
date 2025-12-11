@@ -12,7 +12,7 @@ namespace insightflow_workspace_service.src.Models
         public string Name { get; set; } = "";
         public string Description { get; set; } = "";
         public string ThematicArea { get; set; } = "";
-        public string IconURL { get; set; } = "";
+        public string IconURL { get; set; } = null!;
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public Guid OwnerId { get; set; }
         public IEnumerable<Guid> MemberIds { get; set; } = new List<Guid>();

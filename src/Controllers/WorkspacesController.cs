@@ -7,6 +7,7 @@ using insightflow_workspace_service.src.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using insightflow_workspace_service.src.Helpers;
+using insightflow_workspace_service.src.Service;
 
 namespace insightflow_workspace_service.src.Controllers
 {
@@ -15,14 +16,16 @@ namespace insightflow_workspace_service.src.Controllers
     {
         private readonly ApplicationDBContext _context;
         private readonly WorkspaceHelper _workspaceHelper;
-        public WorkspacesController(ApplicationDBContext context)
+        private readonly CloudinaryService _cloudinaryService;
+        public WorkspacesController(ApplicationDBContext context, CloudinaryService cloudinaryService)
         {
             _context = context;
             _workspaceHelper = new WorkspaceHelper(context);
+            _cloudinaryService = cloudinaryService;
         }
 
         [HttpPost]
-        public IActionResult CreateWorkspace([FromBody] DTOs.CreateWorkspaceDTO dto)
+        public IActionResult CreateWorkspace([FromForm] DTOs.CreateWorkspaceDTO dto)
         {
             if (dto == null)
             {
@@ -35,13 +38,16 @@ namespace insightflow_workspace_service.src.Controllers
                 var result = ResultHelper<Models.Workspace>.Fail("Workspace name already exists.", 409);
                 return StatusCode(result.StatusCode, result);
             }
+
+            String url = _cloudinaryService.UploadImageAsync(dto.IconURL).Result;        
+
             var workspace = new Models.Workspace
             {
                 Id = _workspaceHelper.GenerateWorkspaceId(),
                 Name = dto.Name,
                 Description = dto.Description,
                 ThematicArea = dto.ThematicArea,
-                IconURL = dto.IconURL,
+                IconURL = url,
                 OwnerId = dto.OwnerId,
                 CreatedAt = DateTime.UtcNow,
                 IsActive = true
@@ -85,7 +91,7 @@ namespace insightflow_workspace_service.src.Controllers
 
         [HttpPatch("{id}")]
 
-        public IActionResult EditWorkspace(Guid id, [FromBody] DTOs.EditWorkspaceDTO dto)
+        public IActionResult EditWorkspace(Guid id, [FromForm] DTOs.EditWorkspaceDTO dto)
         {
             var workspace = _context.Workspaces.FirstOrDefault(w => w.Id == id);
 
@@ -93,6 +99,12 @@ namespace insightflow_workspace_service.src.Controllers
             {
                 var result = ResultHelper<Models.Workspace>.Fail("Workspace not found.", 404);
                 return StatusCode(result.StatusCode, result);
+            }
+
+              if (dto.IconURL != null)
+            {
+                String url = _cloudinaryService.UploadImageAsync(dto.IconURL).Result;        
+                workspace.IconURL = url;
             }
 
             workspace.Name = string.IsNullOrWhiteSpace(dto.Name) 
@@ -106,10 +118,6 @@ namespace insightflow_workspace_service.src.Controllers
             workspace.ThematicArea = string.IsNullOrWhiteSpace(dto.ThematicArea) 
                 ? workspace.ThematicArea 
                 : dto.ThematicArea;
-
-            workspace.IconURL = string.IsNullOrWhiteSpace(dto.IconURL) 
-                ? workspace.IconURL 
-                : dto.IconURL;
 
 
             var successResult = ResultHelper<Models.Workspace>.Success(workspace, "Workspace updated successfully.");
