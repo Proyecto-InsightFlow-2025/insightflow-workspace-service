@@ -8,6 +8,6 @@ namespace insightflow_workspace_service.src.Data
 {
     public class ApplicationDBContext
     {
-        List<Workspace> Workspaces { get; set; } = new List<Workspace>();
+        public List<Workspace> Workspaces { get; set; } = new List<Workspace>();
     }
 }
