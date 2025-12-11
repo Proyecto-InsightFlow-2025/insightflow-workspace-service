@@ -27,6 +27,11 @@ namespace insightflow_workspace_service.src.Controllers
         [HttpPost]
         public IActionResult CreateWorkspace([FromForm] DTOs.CreateWorkspaceDTO dto)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            
             if (dto == null)
             {
                 var result = ResultHelper<Models.Workspace>.Fail("Invalid workspace data.", 400);
@@ -38,8 +43,18 @@ namespace insightflow_workspace_service.src.Controllers
                 var result = ResultHelper<Models.Workspace>.Fail("Workspace name already exists.", 409);
                 return StatusCode(result.StatusCode, result);
             }
+            String url = "";
+            try
+            {
+                url = _cloudinaryService.UploadImageAsync(dto.IconURL).Result;
+            }
+            catch (Exception ex)
+            {
+                var result = ResultHelper<Models.Workspace>.Fail($"Image upload failed: {ex.Message}", 400);
+                return StatusCode(result.StatusCode, result);
+            }
 
-            String url = _cloudinaryService.UploadImageAsync(dto.IconURL).Result;        
+                    
 
             var workspace = new Models.Workspace
             {
@@ -103,7 +118,16 @@ namespace insightflow_workspace_service.src.Controllers
 
               if (dto.IconURL != null)
             {
-                String url = _cloudinaryService.UploadImageAsync(dto.IconURL).Result;        
+                String url = "";
+                try
+                {
+                    url = _cloudinaryService.UploadImageAsync(dto.IconURL).Result;
+                }
+                catch (Exception ex)
+                {
+                    var result = ResultHelper<Models.Workspace>.Fail($"Image upload failed: {ex.Message}", 400);
+                    return StatusCode(result.StatusCode, result);
+                }      
                 workspace.IconURL = url;
             }
 
