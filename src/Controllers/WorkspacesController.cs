@@ -75,9 +75,9 @@ namespace insightflow_workspace_service.src.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAllWorkspaces()
+        public IActionResult GetAllWorkspacesByOwner([FromBody]Guid ownerId)
         {
-            var workspaces = _context.Workspaces;
+            var workspaces = _context.Workspaces.Where(w => w.OwnerId == ownerId).ToList();
 
             if (workspaces == null || !workspaces.Any())
             {

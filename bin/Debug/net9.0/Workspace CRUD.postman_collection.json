@@ -16,13 +16,34 @@
 						"method": "POST",
 						"header": [],
 						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"Name\": \"Ucn zzzzz\",\r\n    \"Description\": \"quiero tertminar el semestre HDP\",\r\n    \"ThematicArea\": \"no se xddddd\",\r\n    \"IconURL\": \"no tengo\",\r\n    \"OwnerId\": \"332ef10d-a097-4abb-adb3-c813e1ac211c\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Name",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "Description",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "ThematicArea",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "IconURL",
+									"type": "file",
+									"src": "postman-cloud:///1f0d6af0-acc2-4fe0-8510-92c0d491db36"
+								},
+								{
+									"key": "OwnerId",
+									"value": "0525cc68-1eb0-4bf4-8680-9978ef8b1db9",
+									"type": "text"
 								}
-							}
+							]
 						},
 						"url": {
 							"raw": "http://localhost:5067/Workspaces",
@@ -83,16 +104,17 @@
 						"method": "PATCH",
 						"header": [],
 						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"zzzzzz quiero dormir\",\r\n    \"description\":\"\",\r\n    \"thematicArea\": \"quemar el UCN\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "IconURL",
+									"type": "file",
+									"src": "/C:/Users/Serpa/Desktop/maxresdefault.jpg"
 								}
-							}
+							]
 						},
 						"url": {
-							"raw": "http://localhost:5067/Workspaces/2fe39fcf-0cd7-49e0-b169-031312901d79",
+							"raw": "http://localhost:5067/Workspaces/988d0e1d-72b4-4fcf-8111-0198300c4538",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -100,7 +122,7 @@
 							"port": "5067",
 							"path": [
 								"Workspaces",
-								"2fe39fcf-0cd7-49e0-b169-031312901d79"
+								"988d0e1d-72b4-4fcf-8111-0198300c4538"
 							]
 						}
 					},
@@ -130,7 +152,176 @@
 		},
 		{
 			"name": "Render",
-			"item": []
+			"item": [
+				{
+					"name": "Crear workspace",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "Description",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "ThematicArea",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "IconURL",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "OwnerId",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://insightflow-workspace-service-qw4p.onrender.com/Workspaces",
+							"protocol": "https",
+							"host": [
+								"insightflow-workspace-service-qw4p",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"Workspaces"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Todos los workspace",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://insightflow-workspace-service-qw4p.onrender.com/Workspaces",
+							"protocol": "https",
+							"host": [
+								"insightflow-workspace-service-qw4p",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"Workspaces"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener por id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://insightflow-workspace-service-qw4p.onrender.com/Workspaces/998bfaa2-b3c7-4f64-b0e3-3ede1b82d5a7",
+							"protocol": "https",
+							"host": [
+								"insightflow-workspace-service-qw4p",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"Workspaces",
+								"998bfaa2-b3c7-4f64-b0e3-3ede1b82d5a7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Espacio de trabajo",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Name",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "Description",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "ThematicArea",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "IconURL",
+									"type": "file",
+									"src": [],
+									"disabled": true
+								},
+								{
+									"key": "OwnerId",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "https://insightflow-workspace-service-qw4p.onrender.com/Workspaces/998bfaa2-b3c7-4f64-b0e3-3ede1b82d5a7",
+							"protocol": "https",
+							"host": [
+								"insightflow-workspace-service-qw4p",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"Workspaces",
+								"998bfaa2-b3c7-4f64-b0e3-3ede1b82d5a7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar un workspace",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://insightflow-workspace-service-qw4p.onrender.com/Workspaces/998bfaa2-b3c7-4f64-b0e3-3ede1b82d5a7",
+							"protocol": "https",
+							"host": [
+								"insightflow-workspace-service-qw4p",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"Workspaces",
+								"998bfaa2-b3c7-4f64-b0e3-3ede1b82d5a7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
