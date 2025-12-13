@@ -10,6 +10,17 @@ Environment.SetEnvironmentVariable("DOTNET_USE_POLLING_FILE_WATCHER", "true");
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll",
+        policy =>
+        {
+            policy.AllowAnyOrigin()   // Firebase Hosting
+                  .AllowAnyMethod()   // GET, POST, PATCH, DELETE
+                  .AllowAnyHeader();  // X-User-Id header
+        });
+});
+
 builder.Services.Configure<CloudinarySettings>(
     builder.Configuration.GetSection("CloudinarySettings"));
 
@@ -33,7 +44,8 @@ builder.Services.AddScoped<CloudinaryService>();
 builder.Services.AddControllers();
 
 var app = builder.Build();
-app.MapControllers();
 
+app.UseCors("AllowAll");
+app.MapControllers();               
 
 app.Run();
