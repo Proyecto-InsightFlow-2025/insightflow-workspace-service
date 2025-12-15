@@ -6,6 +6,27 @@ using System.Threading.Tasks;
 
 namespace insightflow_workspace_service.src.Models
 {
+    /// <summary>
+    /// Modelo que representa un espacio de trabajo.
+    /// </summary>
+    /// <remarks>
+    /// Contiene las propiedades y datos asociados a un espacio de trabajo dentro de la aplicación.
+    /// </remarks>
+    /// <example>
+    /// {
+    ///   "Id": "Guid",
+    ///  "Name": "Workspace Name",
+    /// "Description": "Workspace Description",
+    /// "ThematicArea": "Workspace Thematic Area",
+    /// "IconURL": "http://example.com/icon.png",
+    /// "CreatedAt": "2023-01-01T00:00:00Z",
+    /// "OwnerId": "Guid of the owner",
+    /// "MemberIds": ["Guid1", "Guid2"],
+    /// "IsActive": true
+    /// }
+    /// </example>
+    /// <returns>Datos del espacio de trabajo.</returns>
+    /// Se utiliza en la gestión y manipulación de espacios de trabajo en la aplicación.
     public class Workspace
     {
         public Guid Id { get; set; }

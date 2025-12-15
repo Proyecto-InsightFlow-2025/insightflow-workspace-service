@@ -6,6 +6,24 @@ using System.Threading.Tasks;
 
 namespace insightflow_workspace_service.src.DTOs
 {
+    /// <summary>
+    /// DTO para la creación de un espacio de trabajo.
+    /// </summary>
+    /// <remarks>
+    /// Contiene los datos necesarios para crear un nuevo espacio de trabajo.
+    /// </remarks>
+    /// <example>
+    /// {
+    ///    "Name": "Workspace Name",
+    ///   "Description": "Workspace Description",
+    ///  "ThematicArea": "Workspace Thematic Area",
+    ///  "IconURL": [File],
+    /// "OwnerId": "Guid of the owner"
+    /// }
+    /// </example>
+    /// <returns>Datos del espacio de trabajo a crear.</returns>
+    /// Se utiliza en el endpoint de creación de espacios de trabajo.
+    /// 
     public class CreateWorkspaceDTO
     {
         [Required]

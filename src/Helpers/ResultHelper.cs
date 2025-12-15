@@ -5,6 +5,14 @@ using System.Threading.Tasks;
 
 namespace insightflow_workspace_service.src.Helpers
 {
+    /// <summary>
+    /// Clase genérica para manejar resultados de operaciones.
+    /// </summary>
+    /// <typeparam name="T">Tipo de dato que se maneja en el resultado.</typeparam>
+    /// <remarks>
+    /// Proporciona una estructura para devolver resultados exitosos o fallidos de operaciones, incluyendo mensajes y códigos de estado.
+    /// </remarks>  
+    /// 
     public class ResultHelper<T>
     {
         public bool IsSuccess { get; set; }

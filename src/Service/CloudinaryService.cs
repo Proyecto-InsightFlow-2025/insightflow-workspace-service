@@ -7,6 +7,17 @@ using CloudinaryDotNet.Actions;
 
 namespace insightflow_workspace_service.src.Service
 {
+    /// <summary>
+    /// Servicio para manejar la carga de imágenes a Cloudinary.
+    /// </summary>
+    /// <remarks>
+    /// Proporciona métodos para subir imágenes y gestionar la configuración de Cloudinary.
+    /// </remarks>
+    /// <example>
+    /// var cloudinaryService = new CloudinaryService(cloudinary);
+    /// var imageUrl = await cloudinaryService.UploadImageAsync(file);
+    /// </example>
+    /// 
     public class CloudinaryService
     {
         private readonly Cloudinary _cloudinary;

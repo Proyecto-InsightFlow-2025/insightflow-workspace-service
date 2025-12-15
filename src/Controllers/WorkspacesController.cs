@@ -11,6 +11,8 @@ using insightflow_workspace_service.src.Service;
 
 namespace insightflow_workspace_service.src.Controllers
 {
+
+    // Este controller gestiona las operaciones CRUD para los espacios de trabajo. proporciona endpoints para crear, leer, actualizar y eliminar espacios de trabajo.
     [Route("[controller]")]
     public class WorkspacesController : Controller
     {
@@ -23,6 +25,14 @@ namespace insightflow_workspace_service.src.Controllers
             _workspaceHelper = new WorkspaceHelper(context);
             _cloudinaryService = cloudinaryService;
         }
+    
+        //<Summary>
+        // Crea un nuevo espacio de trabajo.
+        //</Summary>
+        /// <param name="dto">
+        /// Datos del espacio de trabajo a crear.
+        /// </param>
+        /// <returns>Resultado de la operación de creación.</returns>
 
         [HttpPost]
         public IActionResult CreateWorkspace([FromForm] DTOs.CreateWorkspaceDTO dto)
@@ -74,6 +84,13 @@ namespace insightflow_workspace_service.src.Controllers
             return StatusCode(successResult.StatusCode, successResult);
         }
 
+        // <Summary>
+        // Obtiene todos los espacios de trabajo de un propietario específico.
+        // </Summary>
+        /// <param name="ownerId">ID del propietario cuyos espacios de trabajo se desean obtener
+        /// </param>
+        /// <returns>Lista de espacios de trabajo del propietario.</returns>
+        
         [HttpGet]
         public IActionResult GetAllWorkspacesByOwner([FromQuery]Guid ownerId)
         {
@@ -89,6 +106,13 @@ namespace insightflow_workspace_service.src.Controllers
             return StatusCode(successResult.StatusCode, successResult);
         }
 
+        // <Summary>
+        // Obtiene un espacio de trabajo por su ID.
+        // </Summary>
+        /// <param name="id">ID del espacio de trabajo a obtener.
+        /// </param>
+        /// <returns>Espacio de trabajo solicitado.</returns>
+        /// 
         [HttpGet("{id}")]
         public IActionResult GetWorkspaceById(Guid id)
         {
@@ -104,6 +128,15 @@ namespace insightflow_workspace_service.src.Controllers
             return StatusCode(successResult.StatusCode, successResult);
         }
 
+        // <Summary>
+        // Edita un espacio de trabajo existente.
+        // </Summary>
+        /// <param name="id">ID del espacio de trabajo a editar.
+        /// </param>
+        /// <param name="dto">Datos del espacio de trabajo a editar.
+        /// </param>
+        /// <returns>Resultado de la operación de edición.</returns>
+        ///   
         [HttpPatch("{id}")]
 
         public IActionResult EditWorkspace(Guid id, [FromForm] DTOs.EditWorkspaceDTO dto)
@@ -148,7 +181,13 @@ namespace insightflow_workspace_service.src.Controllers
             return StatusCode(successResult.StatusCode, successResult);
      
         }
-        
+        // <Summary>
+        // Elimina un espacio de trabajo por su ID.
+        // </Summary>
+        /// <param name="id">ID del espacio de trabajo a eliminar (Soft delete). 
+        /// </param>
+        /// <returns>Resultado de la operación de eliminación.</returns>
+        /// 
         [HttpDelete("{id}")]
         public IActionResult DeleteWorkspace(Guid id)
         {

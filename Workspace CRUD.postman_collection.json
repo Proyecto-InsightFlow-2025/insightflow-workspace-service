@@ -61,11 +61,23 @@
 				},
 				{
 					"name": "Obtener Todos los workspace",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "http://localhost:5067/Workspaces",
+							"raw": "http://localhost:5067/Workspaces?ownerId=",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -73,6 +85,12 @@
 							"port": "5067",
 							"path": [
 								"Workspaces"
+							],
+							"query": [
+								{
+									"key": "ownerId",
+									"value": ""
+								}
 							]
 						}
 					},
@@ -209,7 +227,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://insightflow-workspace-service-qw4p.onrender.com/Workspaces",
+							"raw": "https://insightflow-workspace-service-qw4p.onrender.com/Workspaces?ownerId=",
 							"protocol": "https",
 							"host": [
 								"insightflow-workspace-service-qw4p",
@@ -218,6 +236,12 @@
 							],
 							"path": [
 								"Workspaces"
+							],
+							"query": [
+								{
+									"key": "ownerId",
+									"value": ""
+								}
 							]
 						}
 					},
